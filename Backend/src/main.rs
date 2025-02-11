@@ -8,14 +8,14 @@ enum Status {
 }
 #[derive(Serialize)]
 struct IndexResponse {
-    message: String,
+    message: &'static str,
     status: Status,
 }
 
 #[get("/")]
 fn index() -> Json<IndexResponse> {
     Json(IndexResponse {
-        message: "Hello, world!".to_string(),
+        message: "Hello, world!",
         status: Status::Success,
     })
 }
